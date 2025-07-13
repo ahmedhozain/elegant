@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+
+{% block title %}تم التواصل - ELEGANT{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <!-- Page Header -->
+        <div class="elegant-card mb-4">
+            <div class="elegant-card-header">
+                <h2 class="mb-0">
+                    <i class="bi bi-person-plus-fill me-2"></i>
+                    تسجيل عميل جديد - تم التواصل
+                </h2>
+            </div>
+        </div>
+
+        <!-- Success Alert (if any) -->
+        {% if request.method == 'POST' %}
+        <div class="elegant-alert elegant-alert-success">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            تم تسجيل العميل بنجاح!
+        </div>
+        {% endif %}
+
+        <!-- Main Form -->
+        <div class="elegant-card">
+            <div class="card-body p-4">
+                <form method="POST" class="elegant-form">
+                    <div class="row">
+                        <!-- Employee Name -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-person-badge me-1"></i>
+                                اسم الموظف
+                            </label>
+                            <select name="employee_name" class="form-select" required>
+                                <option value="">اختر اسم الموظف</option>
+                                <option value="احمد محمد">احمد محمد</option>
+                                <option value="احمد محمد">احمد البسيوني</option>
+                                <option value="محمد ياسر">محمد ياسر</option>
+                                <option value="محمد فارس">محمد فارس</option>
+                                <option value="يوسف عصمت">يوسف عصمت</option>
+                                <option value="استاذ محمد">استاذ محمد</option>
+                                <option value="رحمه">رحمه</option>
+                                <option value="شروق">شروق</option>
+                                <option value="منه عادل">منه عادل</option>
+                               
+                                
+                            </select>
+                        </div>
+
+                        <!-- Client Number -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-telephone me-1"></i>
+                                رقم العميل
+                            </label>
+                            <input type="text" name="client_number" class="form-control" required 
+                                   placeholder="أدخل رقم العميل">
+                        </div>
+
+                        <!-- Client Name -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-person me-1"></i>
+                                اسم العميل
+                            </label>
+                            <input type="text" name="client_name" class="form-control" required 
+                                   placeholder="أدخل اسم العميل">
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-gender-ambiguous me-1"></i>
+                                النوع
+                            </label>
+                            <select name="gender" class="form-select" required>
+                                <option value="ذكر">ذكر</option>
+                                <option value="أنثى">أنثى</option>
+                            </select>
+                        </div>
+
+                        <!-- Governorate -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-geo-alt me-1"></i>
+                                المحافظة
+                            </label>
+                            <select name="governorate" class="form-select" required>
+                                <option value="">اختر المحافظة</option>
+                                <option value="القاهرة">القاهرة</option>
+                                <option value="الجيزة">الجيزة</option>
+                                <option value="الإسكندرية">الإسكندرية</option>
+                                <option value="الشرقية">الشرقية</option>
+                                <option value="الغربية">الغربية</option>
+                                <option value="المنوفية">المنوفية</option>
+                                <option value="القليوبية">القليوبية</option>
+                                <option value="البحيرة">البحيرة</option>
+                                <option value="كفر الشيخ">كفر الشيخ</option>
+                                <option value="دمياط">دمياط</option>
+                                <option value="الدقهلية">الدقهلية</option>
+                                <option value="المنيا">المنيا</option>
+                                <option value="أسيوط">أسيوط</option>
+                                <option value="سوهاج">سوهاج</option>
+                                <option value="قنا">قنا</option>
+                                <option value="الأقصر">الأقصر</option>
+                                <option value="أسوان">أسوان</option>
+                                <option value="بني سويف">بني سويف</option>
+                                <option value="الفيوم">الفيوم</option>
+                                <option value="المنيا">المنيا</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-mortarboard me-1"></i>
+                                المؤهل
+                            </label>
+                            <select name="education" class="form-select">
+                                <option value="ثانوي">ثانوي</option>
+                                <option value="دبلوم">دبلوم</option>
+                                <option value="جامعي">جامعي</option>
+                                <option value="ماجستير">ماجستير</option>
+                                <option value="دكتوراه">دكتوراه</option>
+                            </select>
+                        </div>
+
+                        <!-- Marital Status -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-heart me-1"></i>
+                                الحالة الاجتماعية
+                            </label>
+                            <select name="marital_status" class="form-select">
+                                <option value="أعزب">أعزب</option>
+                                <option value="متزوج">متزوج</option>
+                                <option value="مطلق">مطلق</option>
+                                <option value="أرمل">أرمل</option>
+                            </select>
+                        </div>
+
+                        <!-- Has Children -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-people me-1"></i>
+                                هل لديه أطفال؟
+                            </label>
+                            <select name="has_children" class="form-select">
+                                <option value="نعم">نعم</option>
+                                <option value="لا">لا</option>
+                            </select>
+                        </div>
+
+                        <!-- Visa Type -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-passport me-1"></i>
+                                نوع التأشيرة
+                            </label>
+                            <select name="visa_type" class="form-select">
+                                <option value="سياحة">سياحة</option>
+                                <option value="زيارة">زيارة</option>
+                                <option value="هجرة">هجرة</option>
+                                <option value="دراسة">دراسة</option>
+                                <option value="عمل">عمل</option>
+                                <option value="علاج">علاج</option>
+                            </select>
+                        </div>
+
+                        <!-- Interest -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-star me-1"></i>
+                                مدى الاهتمام
+                            </label>
+                            <select name="interest" class="form-select">
+                                <option value="مهتم">مهتم</option>
+                                <option value="غير مهتم">غير مهتم</option>
+                                <option value="محايد">محايد</option>
+                                <option value="مهتم جداً">مهتم جداً</option>
+                            </select>
+                        </div>
+
+                        <!-- Interest Level -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-percent me-1"></i>
+                                نسبة الاهتمام (إن وجد)
+                            </label>
+                            <input type="text" name="interest_level" class="form-control" 
+                                   placeholder="مثال: 80%">
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="col-12 mb-4">
+                            <label class="form-label">
+                                <i class="bi bi-journal-text me-1"></i>
+                                ملاحظات
+                            </label>
+                            <textarea name="notes" class="form-control" rows="4" 
+                                      placeholder="أدخل أي ملاحظات إضافية..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="elegant-btn elegant-btn-primary">
+                            <i class="bi bi-plus-circle-fill me-2"></i>
+                            تسجيل العميل
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Quick Stats Card -->
+        <div class="elegant-card mt-4">
+            <div class="card-body">
+                <h5 class="card-title mb-3">
+                    <i class="bi bi-graph-up me-2"></i>
+                    إحصائيات سريعة
+                </h5>
+                <div class="row text-center">
+                    <div class="col-md-3 mb-2">
+                        <div class="elegant-badge elegant-badge-info">
+                            <i class="bi bi-people-fill me-1"></i>
+                            العملاء الجدد
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="elegant-badge elegant-badge-success">
+                            <i class="bi bi-check-circle-fill me-1"></i>
+                            تم التواصل
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="elegant-badge elegant-badge-warning">
+                            <i class="bi bi-clock-fill me-1"></i>
+                            في الانتظار
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="elegant-badge elegant-badge-danger">
+                            <i class="bi bi-x-circle-fill me-1"></i>
+                            مرفوض
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}لوحة التحكم - ELEGANT{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="elegant-body">
+    <!-- Loading Animation -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="elegant-logo animate__animated animate__pulse animate__infinite">
+                <i class="bi bi-building"></i>
+                <span>ELEGANT</span>
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+    
+    <!-- Fallback to hide loading screen if JavaScript fails -->
+    <noscript>
+        <style>
+            .loading-screen { display: none !important; }
+        </style>
+    </noscript>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark elegant-navbar fixed-top animate__animated animate__fadeInDown">
+        <div class="container">
+            <a class="navbar-brand elegant-brand" href="/">
+                <i class="bi bi-building-fill"></i>
+                <span class="brand-text">ELEGANT</span>
+            </a>
+            <button class="navbar-toggler elegant-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav elegant-nav">
+                    <li class="nav-item">
+                        <a class="nav-link elegant-nav-link" href="/contact">
+                            <i class="bi bi-person-plus-fill"></i>
+                            <span>تم التواصل</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link elegant-nav-link" href="/followup">
+                            <i class="bi bi-arrow-repeat"></i>
+                            <span>المتابعات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link elegant-nav-link" href="/appointment">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>تسجيل مقابلة</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link elegant-nav-link" href="/view_clients">
+                            <i class="bi bi-people-fill"></i>
+                            <span>عرض العملاء</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link elegant-nav-link" href="/view_followups">
+                            <i class="bi bi-clock-history"></i>
+                            <span>عرض المتابعات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link elegant-nav-link" href="/view_appointments">
+                            <i class="bi bi-calendar-event-fill"></i>
+                            <span>عرض المقابلات</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content animate__animated animate__fadeIn">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="elegant-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 ELEGANT . جميع الحقوق محفوظة</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>نظام إدارة العملاء المتطور</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+</body>
+</html>
